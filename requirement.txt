@@ -1,0 +1,9 @@
+flask
+flask_restful
+flask-sqlalchemy
+pymysql
+flask-migrate
+flask-script
+flask-jwt-extended
+pytest
+werkzeug==0.16.0
