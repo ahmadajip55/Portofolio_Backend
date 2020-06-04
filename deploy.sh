@@ -7,7 +7,7 @@ ssh-add -k ~/.ssh/id_rsa &&
 
 source ~/.profile
 echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin
-docker stop restdemo
-docker rm restdemo
-docker rmi ahmadajip55/rest-tutorial:latest
-docker run -d --name restdemo -p 5000:5000 ahmadajip55/rest-tutorial:latest
+sudo docker stop restdemo
+sudo docker rm restdemo
+sudo docker rmi ahmadajip55/rest-tutorial:latest
+sudo docker run -d --name restdemo -p 5000:5000 ahmadajip55/rest-tutorial:latest
