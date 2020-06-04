@@ -8,7 +8,7 @@ env:
   - DOCKER_IMAGE_NAME="rest-tutorial"
   - DOCKER_HUB_ORG="ahmadajip55"
 before_install:
-- openssl aes-256-cbc -K $encrypted_db2095f63ba3_key -iv $encrypted_db2095f63ba3_iv - in deploy_rsa.enc -out deploy_rsa -d
+- openssl aes-256-cbc -K $encrypted_db2095f63ba3_key -iv $encrypted_db2095f63ba3_iv -in deploy_rsa.enc -out deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 deploy_rsa
 - ssh-add deploy_rsa
