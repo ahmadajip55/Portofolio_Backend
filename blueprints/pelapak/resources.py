@@ -61,6 +61,9 @@ class PelapaksRegister(Resource):
         db.session.commit()
 
         return marshal(result, Pelapaks.response_fields), 200, {'Content-Type': 'application/json'}
+        
+    def get(self):
+        return {name: "ajay"} 200
 
 # endpoint untuk login pelapak
 class PelapaksLogin(Resource):
