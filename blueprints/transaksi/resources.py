@@ -83,14 +83,14 @@ class TransaksiResource(Resource):
             qry_produk= Produks.query.filter_by(nama_produk=row["produk"]).all()
             produk = marshal(qry_produk, Produks.response_fields)
         
-            # if pembeli["nama_pembeli"] == row["pembeli"]:
-            #     row["produk"] = produk
+            if pembeli["username"] == row["pembeli"]:
+                row["produk"] = produk
                 
-            #     rows.append(row)
+                rows.append(row)
         
-        # return rows, 200
+        return rows, 200
 
-        return pembeli, 200
+        # return pembeli, 200
 
         # return marshal(transaksi, Transaksis.response_fields), 200
 
