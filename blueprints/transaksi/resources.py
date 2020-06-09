@@ -76,22 +76,21 @@ class TransaksiResource(Resource):
 
         transaksi = Transaksis.query
         
+        rows = []
+        for row in transaksi.all():
+            row = marshal(row, Transaksis.response_fields)
+            
+            qry_produk= Produks.query.filter_by(nama_produk=row["produk"]).all()
+            produk = marshal(qry_produk, Produks.response_fields)
+            
+            # row["pembeli"] = pembeli
+            row["produk"] = produk
+            
+            rows.append(row)
         
-        # rows = []
-        # for row in transaksi.all():
-        #     row = marshal(row, Transaksis.response_fields)
-            
-        #     qry_produk= Produks.query.filter_by(nama_produk=row["produk"]).all()
-        #     produk = marshal(qry_produk, Produks.response_fields)
-            
-        #     row["pembeli"] = pembeli
-        #     row["produk"] = produk
-            
-        #     rows.append(row)
-        
-        # return rows, 200
+        return rows, 200
 
-        return marshal(transaksi, Transaksis.response_fields), 200
+        # return marshal(transaksi, Transaksis.response_fields), 200
 
 
     @pembeli_required
